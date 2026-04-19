@@ -1,7 +1,7 @@
 import socket
 
 cliente = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-cliente.settimeout(3) # Si en 3 segundos no hay respuesta, asumimos que se perdió
+cliente.settimeout(3) # Si en 3 segundos no hay respuesta, se asume  que se perdió
 servidor_dir = ('localhost', 6000)
 
 print("--- CLIENTE UDP ---")
@@ -15,9 +15,9 @@ while True:
     try:
         # Intentamos recibir respuesta
         respuesta, addr = cliente.recvfrom(1024)
-        print(f"Servidor respondió: {respuesta.decode()}")
+        print(f"Servidor respondio: {respuesta.decode()}")
     except socket.timeout:
         # Aquí es donde se cumple la teoría de UDP
-        print("El paquete se  a perdió en la red (No hubo respuesta por parte del servidor ).")
+        print("El paquete se  a perdio en la red (No hubo respuesta por parte del servidor ).")
 
 cliente.close()
